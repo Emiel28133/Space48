@@ -19,10 +19,16 @@ public class ShipBehaviour : MonoBehaviour
     private List<Color> items = new List<Color>();
     private int activeItemIndex = -1;
 
+    private Movement movement;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Introduction());
+
+        movement = gameObject.AddComponent<Movement>();
+        movement.moveSpeed = 10f; // Stel de snelheid van het schip in
+        movement.useInput = true; // Schip gebruikt input
     }
     IEnumerator Introduction() { 
         introductionField.enabled = true;
